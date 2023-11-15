@@ -115,8 +115,8 @@ function bestYearAvg(moviesArray) {
   if (moviesArray.length === 0) {
     return null;
   }
-  let orderedMoviesByYear = orderByYear(moviesArray);
-  let test = orderedMoviesByYear.reduce((acc, movie) => {
+
+  let test = moviesArray.reduce((acc, movie) => {
     if (!acc[movie.year]) {
       acc[movie.year] = [movie.score];
     } else {
@@ -143,6 +143,8 @@ function bestYearAvg(moviesArray) {
     } else if (averageYear === maxScore) {
       if (bestYear < key) {
         continue;
+      } else {
+        bestYear = key;
       }
     }
   }
